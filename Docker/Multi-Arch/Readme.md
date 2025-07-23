@@ -87,10 +87,9 @@ This is the core command that builds and pushes your multi-architecture image to
       -t your_dockerhub_username/your_image_name:latest \
       --push .
 ```
-    *`--platform linux/amd64,linux/arm64`: Specifies the target architectures. You can add more, e.g., `linux/arm/v7` for 32-bit ARM.
-    * `-t your_dockerhub_username/your_image_name:latest`: Tags the image with your Docker Hub username, image name, and tag.
-    * `--push`: **Crucially**, this flag pushes the built images and the multi-architecture manifest list to your configured Docker registry. Multi-platform images *cannot* be loaded directly into the local Docker daemon.
-    * `.`: Specifies the current directory as the build context.
+ ## Important flags explained:
+--push: This flag is essential for multi-architecture images. buildx creates a manifest list and pushes all the individual architecture-specific images
+and the manifest list to your Docker registry. You cannot load a multi-platform image directly into your local Docker daemon's image store. It must be pushed to a registry.
 
    
 ## 6. Verify the Multi-Architecture Image
