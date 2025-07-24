@@ -30,7 +30,7 @@ fi
 echo ""
 echo "--- Preparing Docker Image: ${FULL_IMAGE_NAME} ---"
 
-# Fix: Corrected conditional syntax. Spaces are crucial around '=' in bash `[ ]`.
+
 if [ "${BUILD_IMAGE_FROM_DOCKERFILE}" = "true" ]; then
   echo "Building image from Dockerfile and pushing to registry..."
   if [ ! -f "Dockerfile" ]; then # Fix: Space after `[`
